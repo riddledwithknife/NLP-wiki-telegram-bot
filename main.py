@@ -33,7 +33,7 @@ def photo_tags(filename):
 
 
 def wiki(concept):
-    nlp = spacy.load('en')
+    nlp = spacy.load('en_core_web_lg')
     wiki_resp = wikipedia.page(concept)
     doc = nlp(wiki_resp.content)
     if len(concept.split()) == 1:
@@ -50,7 +50,7 @@ def start(update):
 
 def text_msg(update):
     msg = update.message.text
-    nlp = spacy.load('en')
+    nlp = spacy.load('en_core_web_lg')
     doc = nlp(msg)
     concept = keyphrase(doc)
     if concept:
